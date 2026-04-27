@@ -6,7 +6,6 @@ public:
         int result = 0;
         int high = low;
         while(high<nums.size() && low<nums.size()){
-            
             product *= nums[high];
             if(product<k){
                 result++;
