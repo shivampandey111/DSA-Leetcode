@@ -1,7 +1,7 @@
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        if(nums.size()<=2) return nums.size();
+        if(nums.size()<2) return nums.size();
         int slow = 1;
         int count = 1;
 
@@ -11,7 +11,7 @@ public:
             }
             else count =1;
             if(count<=2){
-                nums[slow] = nums[fast];
+                nums[slow]=nums[fast];
                 slow++;
             }
         }
