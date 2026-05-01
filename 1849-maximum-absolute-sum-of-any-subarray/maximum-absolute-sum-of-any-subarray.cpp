@@ -4,7 +4,8 @@ public:
         int maxBest = nums[0];
         int minBest = nums[0];
         int result = nums[0];
-        for(int i =1; i<nums.size(); i++){
+        
+        for(int i=1; i<nums.size(); i++){
             int maxi = max(maxBest+nums[i], nums[i]);
             int mini = min(minBest+nums[i], nums[i]);
             int curr = nums[i];
@@ -12,7 +13,7 @@ public:
             maxBest = max(maxi, curr);
             minBest = min(mini, curr);
 
-            result = max(result, max(maxi, abs(mini)));
+            result = max(result, max(abs(maxBest), abs(minBest)));
         }
         if(nums.size()==1){
             result = abs(nums[0]);
