@@ -6,13 +6,9 @@ public:
         int result = nums[0];
         
         for(int i=1; i<nums.size(); i++){
-            int maxi = max(maxBest+nums[i], nums[i]);
-            int mini = min(minBest+nums[i], nums[i]);
-            int curr = nums[i];
-
-            maxBest = max(maxi, curr);
-            minBest = min(mini, curr);
-
+            maxBest = max(maxBest+nums[i], nums[i]);
+            minBest = min(minBest+nums[i], nums[i]);
+            
             result = max(result, max(abs(maxBest), abs(minBest)));
         }
         if(nums.size()==1){
