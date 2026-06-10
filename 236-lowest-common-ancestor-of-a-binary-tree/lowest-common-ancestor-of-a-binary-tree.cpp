@@ -9,10 +9,11 @@
  */
 class Solution {
 public:
-    int func(TreeNode* root, TreeNode* p, TreeNode* q, TreeNode*& ans){
+    TreeNode* ans = NULL;
+    int func(TreeNode* root, TreeNode* p, TreeNode* q){
         if(root==NULL) return 0;
-        int left = func(root->left, p, q, ans);
-        int right = func(root->right, p, q, ans);
+        int left = func(root->left, p, q);
+        int right = func(root->right, p, q);
         int self = 0;
         if(p==root || q==root) self++;
         int total = self + left + right;
@@ -25,8 +26,7 @@ public:
     }
 
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        TreeNode* ans = NULL;
-        func(root, p, q, ans);
+        func(root, p, q);
         return ans;
     }
 };
