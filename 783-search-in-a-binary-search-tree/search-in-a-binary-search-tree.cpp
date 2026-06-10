@@ -14,12 +14,16 @@ public:
     TreeNode* ans = NULL;
     void func(TreeNode* root, int val){
         if(root==NULL) return;
-        if(root->val==val && ans == NULL){
+        if(root->val==val){
             ans = root;
             return;
         }
-        func(root->left, val);
-        func(root->right, val);
+        if(root->val>val){
+            func(root->left, val);
+        }
+        else if(root->val<val){
+            func(root->right, val);
+        }
     }
     TreeNode* searchBST(TreeNode* root, int val) {
         func(root, val);
