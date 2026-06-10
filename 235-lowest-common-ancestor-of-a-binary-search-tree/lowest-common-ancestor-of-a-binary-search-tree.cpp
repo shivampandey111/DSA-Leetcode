@@ -47,9 +47,9 @@ public:
     // }
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
         if(p->val>q->val){
-            swap(p,q);
+            func(root, q, p);
         }
-        func(root, p, q);
+        else func(root, p, q);
         return ans;
     }
 };
