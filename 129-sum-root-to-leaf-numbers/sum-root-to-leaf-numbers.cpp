@@ -11,19 +11,12 @@
  */
 class Solution {
 public:
-    int getInt(string s){
-        int num = 0;
-        for(char c:s){
-            num = num * 10 + (c - '0');
-        }
-        return num;
-    }
     int res = 0;
-    void func(TreeNode* root, string s){
+    void func(TreeNode* root, int s){
         if(root==NULL) return;
-        s += root->val + '0';
+        s = s * 10 + root->val;
         if(root->left==NULL && root->right==NULL){
-            res += getInt(s);
+            res += s;
             return;
         }
         func(root->left, s);
@@ -31,8 +24,8 @@ public:
         return;
     }
     int sumNumbers(TreeNode* root) {
-        string s;
-        func(root, s);
+        int curNum = 0;
+        func(root, curNum);
         return res;
     }
 };
