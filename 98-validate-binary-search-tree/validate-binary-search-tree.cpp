@@ -1,20 +1,19 @@
 class Solution {
 public:
     bool res = true;
-    void func(TreeNode* root, vector<int>& temp){
+    TreeNode* prev = NULL;
+    void func(TreeNode* root, TreeNode*& prev){
         if(root==NULL) return;
-        func(root->left, temp);
-        if(!temp.empty()){
-            int last = temp.back();
-            if(root->val<=last) res = false;
+        func(root->left, prev);
+        if(prev && root->val<=prev->val){
+            res = false;
         }
-        temp.push_back(root->val);
-        func(root->right, temp);
+        prev = root;
+        func(root->right, prev);
     }
     bool isValidBST(TreeNode* root) {
         if(root==NULL) return true;
-        vector<int> temp;
-        func(root, temp);
+        func(root, prev);
         return res;
     }
 };
