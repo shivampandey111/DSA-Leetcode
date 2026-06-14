@@ -1,19 +1,18 @@
 class Solution {
 public:
-    TreeNode* prev = NULL;
+    #define null NULL
     int count = 0;
-    TreeNode* ff = NULL;
-    TreeNode* fs = NULL;
-    TreeNode* sf = NULL;
-    TreeNode* ss = NULL;
-    void func(TreeNode*& root){
-        if(root==NULL) return;
+    TreeNode* prev = null;
+    TreeNode* ff = null;
+    TreeNode* fs = null;
+    TreeNode* sf = null;
+    TreeNode* ss = null;
+    void func(TreeNode* root){
+        if(root==null) return;
         func(root->left);
-        if(prev==NULL){
-            prev = root;
-        }
+        if(prev==null) prev = root;
         else{
-            if(root->val<prev->val){
+            if(prev->val>root->val){
                 if(count==0){
                     ff = prev;
                     fs = root;
@@ -30,7 +29,7 @@ public:
         func(root->right);
     }
     void recoverTree(TreeNode* root) {
-        if(root==NULL) return;
+        if(root==null) return;
         func(root);
         if(count==1){
             swap(ff->val, fs->val);
@@ -38,5 +37,6 @@ public:
         else{
             swap(ff->val, ss->val);
         }
+
     }
 };
