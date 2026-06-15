@@ -13,7 +13,6 @@ public:
     }
     bool isSameTree(TreeNode* p, TreeNode* q) {
         bool res = check(p, q);
-        
         return res;
     }
     bool isSubtree(TreeNode* root, TreeNode* subRoot) {
