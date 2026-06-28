@@ -1,8 +1,8 @@
 class Solution {
 public:
     int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int k) {
-        vector<int> res(n, 1e9);
-        vector<int> temp(n, 1e9);
+        vector<int> res(n, 1e5);
+        vector<int> temp(n, 1e5);
         res[src] = 0;
         temp[src] = 0;
         
@@ -12,7 +12,7 @@ public:
                 int d = flights[j][1];
                 int w = flights[j][2];
 
-                if(temp[s]!=1e9 && temp[d]>res[s]+w){
+                if(temp[s]!=1e5 && temp[d]>res[s]+w){
                     temp[d] = res[s] + w;
                 }
             }
@@ -20,7 +20,7 @@ public:
                 res[i] = temp[i];
             }
         }
-        if(temp[dst]==1e9) return -1;
+        if(temp[dst]==1e5) return -1;
         return temp[dst];
 
     }
