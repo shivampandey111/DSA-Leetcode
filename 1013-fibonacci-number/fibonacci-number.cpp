@@ -15,17 +15,20 @@ public:
 //         return ans1 + ans2;
 //     }
     int fib(int n) {
-        vector<int> dp(n+1, 0);
-        if(n==0) return 0;
-        dp[1] = 0;
-        int i = 1;
+        // vector<int> dp(n+1, 0);
+        if(n==0 || n==1) return n;
+        // dp[1] = 0;
+        // int i = 1;
+        int p = 1;
+        int pp = 0;
+        int i = 2;
+        int ans = 0;
         while(i<=n){
-            if(i==1) dp[1] = i + dp[i-1];
-            else{
-                dp[i] = dp[i-1] + dp[i-2];
-            }
+            ans = p + pp;
+            pp = p;
+            p = ans;
             i++;
         }
-        return dp[n];
+        return ans;
     }
 };
