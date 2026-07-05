@@ -1,21 +1,30 @@
 class Solution {
 public:
-    void func(vector<char>& arr, int idx, vector<char>& temp){
-        if(idx<0) return;
-        if(idx==0){
-            temp.push_back(arr[idx]);
-            return;
-        }
-        temp.push_back(arr[idx]);
-        func(arr, idx-1, temp);
-    }
+    // void func(vector<char>& arr, int idx, vector<char>& temp){
+    //     if(idx<0) return;
+    //     if(idx==0){
+    //         temp.push_back(arr[idx]);
+    //         return;
+    //     }
+    //     temp.push_back(arr[idx]);
+    //     func(arr, idx-1, temp);
+    // }
 
     void reverseString(vector<char>& s) {
         if(s.size()<=0) return;
-        int idx = s.size()-1;
-        vector<char> temp;
-        func(s, idx, temp);
-        s = temp;
+        // int idx = s.size()-1;
+        // vector<char> temp;
+        // func(s, idx, temp);
+        // s = temp;
+
+        int low = 0;
+        int high = s.size()-1;
+        while(low<=high){
+            swap(s[low], s[high]);
+            low++;
+            high--;
+        }
+
 
         // stack<char> rev;
 
