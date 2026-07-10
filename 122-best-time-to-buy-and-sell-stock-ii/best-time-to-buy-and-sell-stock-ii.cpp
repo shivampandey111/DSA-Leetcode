@@ -4,7 +4,7 @@ public:
         if(i==n) return 0;
         if(dp[i][k]!=-1) return dp[i][k];
         if(k==0){
-            return dp[i][k] = fun(nums, i, 2, n, dp);
+            return 0;
         }
         if(k==2){
             int c1 = fun(nums, i+1, 1, n, dp) - nums[i];
@@ -12,7 +12,7 @@ public:
             return dp[i][k] = max(c1, c2);
         }
         else {
-            int c1 = fun(nums, i+1, 0, n, dp) + nums[i];
+            int c1 = fun(nums, i+1, 2, n, dp) + nums[i];
             int c2 = fun(nums, i+1, 1, n, dp);
             return dp[i][k] = max(c1, c2);
         }
